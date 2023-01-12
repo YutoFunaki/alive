@@ -10,6 +10,7 @@ import CoreData
 
 struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
+    @State var selectedDate: Date = Date()
 
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
@@ -17,29 +18,21 @@ struct ContentView: View {
     private var items: FetchedResults<Item>
 
     var body: some View {
-        NavigationView {
-            List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text("Item at \(item.timestamp!, formatter: itemFormatter)")
-                    } label: {
-                        Text(item.timestamp!, formatter: itemFormatter)
-                    }
-                }
-                .onDelete(perform: deleteItems)
-            }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
-                    }
-                }
-            }
-            Text("Select an item")
+        VStack() {
+            Text(selectedDate.formatted(date: .abbreviated, time: .omitted))
+                .font(.system(size: 28))
+                .bold()
+                .foregroundColor(Color.accentColor)
+                .padding()
+                .animation(.spring(), value: selectedDate)
+                .frame(width: 500)
+            Divider().frame(height: 1)
+            DatePicker("Select Date", selection: $selectedDate, displayedComponents: [.date])
+                .padding(.horizontal)
+                .datePickerStyle(.graphical)
+            Divider()
         }
+        .padding(.vertical, 100)
     }
 
     private func addItem() {
@@ -84,5 +77,25 @@ private let itemFormatter: DateFormatter = {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+    }
+}
+
+struct DatePickerCalendar: View {
+    @State var selectedDate = Date()
+    var body: some View {
+        VStack {
+            FormattedDate(selectedDate: selectedDate, omitTime: true)
+            Divider().frame(height: 1)
+            DatePicker("Select Date", selection: $selectedDate,
+                       in: ...Date(), displayedComponents: .date)
+            .datePickerStyle(.graphical)
+            Divider()
+        }
+    }
+}
+
+struct DatePickerCalendar_Previews: PreviewProvider {
+    static var previews: some View {
+        DatePickerCalendar()
     }
 }

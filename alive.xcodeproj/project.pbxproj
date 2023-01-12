@@ -13,6 +13,7 @@
 		77486402296FF6EE00DD32D8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77486401296FF6EE00DD32D8 /* Preview Assets.xcassets */; };
 		77486404296FF6EE00DD32D8 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77486403296FF6EE00DD32D8 /* Persistence.swift */; };
 		77486407296FF6EE00DD32D8 /* alive.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 77486405296FF6EE00DD32D8 /* alive.xcdatamodeld */; };
+		7748640F296FFEFB00DD32D8 /* FormattedDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7748640E296FFEFB00DD32D8 /* FormattedDate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		77486403296FF6EE00DD32D8 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		77486406296FF6EE00DD32D8 /* alive.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = alive.xcdatamodel; sourceTree = "<group>"; };
 		77486408296FF6EE00DD32D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7748640E296FFEFB00DD32D8 /* FormattedDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormattedDate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 			children = (
 				774863FA296FF6EC00DD32D8 /* aliveApp.swift */,
 				774863FC296FF6EC00DD32D8 /* ContentView.swift */,
+				7748640E296FFEFB00DD32D8 /* FormattedDate.swift */,
 				774863FE296FF6EE00DD32D8 /* Assets.xcassets */,
 				77486403296FF6EE00DD32D8 /* Persistence.swift */,
 				77486408296FF6EE00DD32D8 /* Info.plist */,
@@ -149,6 +152,7 @@
 				774863FD296FF6EC00DD32D8 /* ContentView.swift in Sources */,
 				774863FB296FF6EC00DD32D8 /* aliveApp.swift in Sources */,
 				77486407296FF6EE00DD32D8 /* alive.xcdatamodeld in Sources */,
+				7748640F296FFEFB00DD32D8 /* FormattedDate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
