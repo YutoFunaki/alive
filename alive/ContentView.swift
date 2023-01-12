@@ -18,21 +18,27 @@ struct ContentView: View {
     private var items: FetchedResults<Item>
 
     var body: some View {
-        VStack() {
-            Text(selectedDate.formatted(date: .abbreviated, time: .omitted))
-                .font(.system(size: 28))
-                .bold()
-                .foregroundColor(Color.accentColor)
-                .padding()
-                .animation(.spring(), value: selectedDate)
-                .frame(width: 500)
-            Divider().frame(height: 1)
-            DatePicker("Select Date", selection: $selectedDate, displayedComponents: [.date])
-                .padding(.horizontal)
-                .datePickerStyle(.graphical)
-            Divider()
+        TabView {
+            DatePickerCalendar()
+                .tabItem {
+                    Label("DatePicker Calendar", systemImage: "calendar.badge.plus")
+                        .padding()
+                }
+            CalendarView()
+                .tabItem {
+                    Label("Fullscreen Calendar", systemImage: "calendar")
+                        .padding()
+                }
         }
-        .padding(.vertical, 100)
+        .onAppear {
+            let appearance = UITabBarAppearance()
+            appearance.backgroundColor = UIColor(Color.red.opacity(0.2))
+            appearance.shadowColor = UIColor(.purple)
+            appearance.backgroundEffect = UIBlurEffect(style: .extraLight)
+            UITabBar.appearance().standardAppearance = appearance
+            UITabBar.appearance().scrollEdgeAppearance = appearance
+        }
+
     }
 
     private func addItem() {
