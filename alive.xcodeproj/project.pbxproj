@@ -14,9 +14,10 @@
 		77486404296FF6EE00DD32D8 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77486403296FF6EE00DD32D8 /* Persistence.swift */; };
 		77486407296FF6EE00DD32D8 /* alive.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 77486405296FF6EE00DD32D8 /* alive.xcdatamodeld */; };
 		7748640F296FFEFB00DD32D8 /* FormattedDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7748640E296FFEFB00DD32D8 /* FormattedDate.swift */; };
-		7748641129700DA500DD32D8 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7748641029700DA500DD32D8 /* CalendarView.swift */; };
 		7748641429700FE700DD32D8 /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 7748641329700FE700DD32D8 /* FSCalendar */; };
 		774864462973C0CF00DD32D8 /* person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774864452973C0CF00DD32D8 /* person.swift */; };
+		774864482973C52800DD32D8 /* frendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774864472973C52800DD32D8 /* frendView.swift */; };
+		7748644A2973EA0700DD32D8 /* pointView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774864492973EA0700DD32D8 /* pointView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,8 +30,9 @@
 		77486406296FF6EE00DD32D8 /* alive.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = alive.xcdatamodel; sourceTree = "<group>"; };
 		77486408296FF6EE00DD32D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7748640E296FFEFB00DD32D8 /* FormattedDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormattedDate.swift; sourceTree = "<group>"; };
-		7748641029700DA500DD32D8 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		774864452973C0CF00DD32D8 /* person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = person.swift; sourceTree = "<group>"; };
+		774864472973C52800DD32D8 /* frendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = frendView.swift; sourceTree = "<group>"; };
+		774864492973EA0700DD32D8 /* pointView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pointView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,9 +68,10 @@
 			children = (
 				774863FA296FF6EC00DD32D8 /* aliveApp.swift */,
 				774863FC296FF6EC00DD32D8 /* ContentView.swift */,
+				774864492973EA0700DD32D8 /* pointView.swift */,
+				774864472973C52800DD32D8 /* frendView.swift */,
 				774864452973C0CF00DD32D8 /* person.swift */,
 				7748640E296FFEFB00DD32D8 /* FormattedDate.swift */,
-				7748641029700DA500DD32D8 /* CalendarView.swift */,
 				774863FE296FF6EE00DD32D8 /* Assets.xcassets */,
 				77486403296FF6EE00DD32D8 /* Persistence.swift */,
 				77486408296FF6EE00DD32D8 /* Info.plist */,
@@ -164,11 +167,12 @@
 			files = (
 				77486404296FF6EE00DD32D8 /* Persistence.swift in Sources */,
 				774863FD296FF6EC00DD32D8 /* ContentView.swift in Sources */,
-				7748641129700DA500DD32D8 /* CalendarView.swift in Sources */,
 				774863FB296FF6EC00DD32D8 /* aliveApp.swift in Sources */,
+				774864482973C52800DD32D8 /* frendView.swift in Sources */,
 				77486407296FF6EE00DD32D8 /* alive.xcdatamodeld in Sources */,
 				774864462973C0CF00DD32D8 /* person.swift in Sources */,
 				7748640F296FFEFB00DD32D8 /* FormattedDate.swift in Sources */,
+				7748644A2973EA0700DD32D8 /* pointView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

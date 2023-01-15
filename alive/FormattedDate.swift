@@ -13,9 +13,9 @@ struct FormattedDate: View {
     var body: some View {
         Text(selectedDate.formatted(date: .abbreviated, time:
                                         omitTime ? .omitted : .standard))
-        .font(.system(size: 28))
+        .font(.system(size: 20))
         .bold()
-        .foregroundColor(Color.accentColor)
+        .foregroundColor(Color.gray)
         .padding()
         .animation(.spring(), value: selectedDate)
         .frame(width: 500)

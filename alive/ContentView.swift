@@ -22,7 +22,7 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                
+                Text("point")
             }
             
             
@@ -32,7 +32,7 @@ struct ContentView: View {
                         Label("Home", systemImage: "calendar")
                             .padding()
                     }
-                CalendarView()
+                pointView()
                     .tabItem {
                         Label("交換", systemImage: "arrow.triangle.2.circlepath")
                             .padding()
@@ -55,7 +55,7 @@ struct ContentView: View {
                     }
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    NavigationLink(destination: person()) {
+                    NavigationLink(destination: frendView()) {
                         Image(systemName: "person.3")
                     }
                 }
@@ -67,7 +67,7 @@ struct ContentView: View {
         withAnimation {
             let newItem = Item(context: viewContext)
             newItem.timestamp = Date()
-
+            
             do {
                 try viewContext.save()
             } catch {
@@ -110,14 +110,18 @@ struct ContentView_Previews: PreviewProvider {
 
 struct DatePickerCalendar: View {
     @State var selectedDate = Date()
+    var omitTime: Bool = false
     var body: some View {
         VStack {
-            FormattedDate(selectedDate: selectedDate, omitTime: true)
             Divider().frame(height: 1)
             DatePicker("Select Date", selection: $selectedDate,
                        in: ...Date(), displayedComponents: .date)
             .datePickerStyle(.graphical)
             Divider()
+            Spacer()
+            FormattedDate(selectedDate: selectedDate, omitTime: true)
+            Text("やること")
+            Spacer()
         }
     }
 }
