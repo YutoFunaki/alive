@@ -20,27 +20,51 @@ struct ContentView: View {
     private var items: FetchedResults<Item>
 
     var body: some View {
-        TabView {
-            DatePickerCalendar()
-                .tabItem {
-                    Label("DatePicker Calendar", systemImage: "calendar.badge.plus")
-                        .padding()
+        NavigationStack {
+            VStack {
+                
+            }
+            
+            
+            TabView {
+                DatePickerCalendar()
+                    .tabItem {
+                        Label("Home", systemImage: "calendar")
+                            .padding()
+                    }
+                CalendarView()
+                    .tabItem {
+                        Label("交換", systemImage: "arrow.triangle.2.circlepath")
+                            .padding()
+                    }
+            }
+            .onAppear {
+                let appearance = UITabBarAppearance()
+                appearance.backgroundColor = UIColor(Color.indigo.opacity(0.2))
+                appearance.shadowColor = UIColor(.indigo)
+                appearance.backgroundEffect = UIBlurEffect(style: .extraLight)
+                UITabBar.appearance().standardAppearance = appearance
+                UITabBar.appearance().scrollEdgeAppearance = appearance
+            }
+            .navigationBarTitle("alive")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button(action: {
+                        print("設定ボタンです")
+                    }) {
+                        Image(systemName: "person.crop.circle")
+                    }
                 }
-            CalendarView()
-                .tabItem {
-                    Label("Fullscreen Calendar", systemImage: "calendar")
-                        .padding()
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: {
+                        print("設定ボタンです")
+                    }) {
+                        Image(systemName: "person.2")
+                    }
                 }
+            }
         }
-        .onAppear {
-            let appearance = UITabBarAppearance()
-            appearance.backgroundColor = UIColor(Color.red.opacity(0.2))
-            appearance.shadowColor = UIColor(.purple)
-            appearance.backgroundEffect = UIBlurEffect(style: .extraLight)
-            UITabBar.appearance().standardAppearance = appearance
-            UITabBar.appearance().scrollEdgeAppearance = appearance
-        }
-
     }
 
     private func addItem() {
