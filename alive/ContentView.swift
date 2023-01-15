@@ -57,10 +57,8 @@ struct ContentView: View {
                     }
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(action: {
-                        print("設定ボタンです")
-                    }) {
-                        Image(systemName: "person.2")
+                    NavigationLink(destination: person()) {
+                        Image(systemName: "person.3")
                     }
                 }
             }
