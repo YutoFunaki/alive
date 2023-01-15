@@ -51,7 +51,7 @@ struct ContentView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button(action: {
-                        print("設定ボタンです")
+                        person()
                     }) {
                         Image(systemName: "person.crop.circle")
                     }

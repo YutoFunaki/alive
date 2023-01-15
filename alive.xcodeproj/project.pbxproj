@@ -16,6 +16,7 @@
 		7748640F296FFEFB00DD32D8 /* FormattedDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7748640E296FFEFB00DD32D8 /* FormattedDate.swift */; };
 		7748641129700DA500DD32D8 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7748641029700DA500DD32D8 /* CalendarView.swift */; };
 		7748641429700FE700DD32D8 /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 7748641329700FE700DD32D8 /* FSCalendar */; };
+		774864462973C0CF00DD32D8 /* person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774864452973C0CF00DD32D8 /* person.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		77486408296FF6EE00DD32D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7748640E296FFEFB00DD32D8 /* FormattedDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormattedDate.swift; sourceTree = "<group>"; };
 		7748641029700DA500DD32D8 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
+		774864452973C0CF00DD32D8 /* person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = person.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 			children = (
 				774863FA296FF6EC00DD32D8 /* aliveApp.swift */,
 				774863FC296FF6EC00DD32D8 /* ContentView.swift */,
+				774864452973C0CF00DD32D8 /* person.swift */,
 				7748640E296FFEFB00DD32D8 /* FormattedDate.swift */,
 				7748641029700DA500DD32D8 /* CalendarView.swift */,
 				774863FE296FF6EE00DD32D8 /* Assets.xcassets */,
@@ -164,6 +167,7 @@
 				7748641129700DA500DD32D8 /* CalendarView.swift in Sources */,
 				774863FB296FF6EC00DD32D8 /* aliveApp.swift in Sources */,
 				77486407296FF6EE00DD32D8 /* alive.xcdatamodeld in Sources */,
+				774864462973C0CF00DD32D8 /* person.swift in Sources */,
 				7748640F296FFEFB00DD32D8 /* FormattedDate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
