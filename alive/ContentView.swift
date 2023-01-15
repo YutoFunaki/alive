@@ -50,9 +50,7 @@ struct ContentView: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
-                    Button(action: {
-                        person()
-                    }) {
+                    NavigationLink(destination: person()){
                         Image(systemName: "person.crop.circle")
                     }
                 }
