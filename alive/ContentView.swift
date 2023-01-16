@@ -13,6 +13,8 @@ import FSCalendar
 struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
     @State var selectedDate: Date = Date()
+    @State var points: Float = Float()
+    let IntPoint = Int(points)
 
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
@@ -22,9 +24,8 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                Text("point")
+                Text("\(points)")
             }
-            
             
             TabView {
                 DatePickerCalendar()
@@ -54,11 +55,11 @@ struct ContentView: View {
                         Image(systemName: "person.crop.circle")
                     }
                 }
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    NavigationLink(destination: frendView()) {
-                        Image(systemName: "person.3")
-                    }
-                }
+                //ToolbarItem(placement: .navigationBarTrailing) {
+                    //NavigationLink(destination: frendView()) {
+                        //Image(systemName: "person.3")
+                    //}
+                //}
             }
         }
     }
@@ -118,8 +119,7 @@ struct DatePickerCalendar: View {
                        in: ...Date(), displayedComponents: .date)
             .datePickerStyle(.graphical)
             Divider()
-            Spacer()
-            FormattedDate(selectedDate: selectedDate, omitTime: true)
+            //FormattedDate(selectedDate: selectedDate, omitTime: true)
             Text("やること")
             Spacer()
         }
@@ -131,3 +131,27 @@ struct DatePickerCalendar_Previews: PreviewProvider {
         DatePickerCalendar()
     }
 }
+
+class Coordinator: NSObject, FSCalendarDelegate, FSCalendarDataSource {
+    var parent:DatePickerCalendar
+    let dateFormatter = DateFormatter()
+    
+    init(_ parent:DatePickerCalendar){
+        self.parent = parent
+    }
+    
+    func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
+        dateFormatter.dateFormat = "dd-MM-yyyy"
+        guard let eventDate = dateFormatter.date(from: "10-01-2023") else { return 0 }
+        
+        if date.compare(eventDate) == .orderedSame{
+            return 1
+        }
+        return 0
+    }
+    
+    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        parent.selectedDate = date
+        
+    }
+    }
