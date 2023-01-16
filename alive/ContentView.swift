@@ -123,6 +123,41 @@ struct DatePickerCalendar: View {
             Spacer()
         }
     }
+    class Coordinator: NSObject, FSCalendarDelegate, FSCalendarDataSource {
+        var parent:DatePickerCalendar
+                
+        let eventsDate = [
+            Date(),
+            Calendar.current.date(byAdding: .day, value: +1, to: Date())!,
+            Calendar.current.date(byAdding: .day, value: +5, to: Date())!
+        ]
+        
+        let dateFormatter = DateFormatter()
+        
+        init(_ parent:DatePickerCalendar){
+            self.parent = parent
+        }
+ 
+        func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
+            
+            dateFormatter.dateFormat = "MMM dd, yyyy"
+            for eventDate in eventsDate{
+                guard let eventDate = dateFormatter.date(from: dateFormatYMD(date: eventDate)) else { return 0 }
+                if date.compare(eventDate) == .orderedSame{
+                    return 1
+                }
+            }
+            return 0
+        }
+        
+        func dateFormatYMD(date: Date) -> String {
+            let df = DateFormatter()
+            df.dateStyle = .long
+            df.timeStyle = .none
+            
+            return df.string(from: date)
+        }
+    }
 }
 
 struct DatePickerCalendar_Previews: PreviewProvider {
@@ -131,26 +166,3 @@ struct DatePickerCalendar_Previews: PreviewProvider {
     }
 }
 
-class Coordinator: NSObject, FSCalendarDelegate, FSCalendarDataSource {
-    var parent:DatePickerCalendar
-    let dateFormatter = DateFormatter()
-    
-    init(_ parent:DatePickerCalendar){
-        self.parent = parent
-    }
-    
-    func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
-        dateFormatter.dateFormat = "dd-MM-yyyy"
-        guard let eventDate = dateFormatter.date(from: "10-01-2023") else { return 0 }
-        
-        if date.compare(eventDate) == .orderedSame{
-            return 1
-        }
-        return 0
-    }
-    
-    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-        parent.selectedDate = date
-        
-    }
-    }
