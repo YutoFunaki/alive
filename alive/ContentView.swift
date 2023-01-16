@@ -13,8 +13,7 @@ import FSCalendar
 struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
     @State var selectedDate: Date = Date()
-    @State var points: Float = Float()
-    let IntPoint = Int(points)
+    @State var points: Int = Int()
 
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
@@ -24,7 +23,7 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                Text("\(points)")
+                Text("\(points) P")
             }
             
             TabView {
