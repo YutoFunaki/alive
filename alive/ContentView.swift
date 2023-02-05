@@ -38,6 +38,7 @@ struct ContentView: View {
                             .padding()
                     }
             }
+            // 下のタブバーの設定
             .onAppear {
                 let appearance = UITabBarAppearance()
                 appearance.backgroundColor = UIColor(Color.indigo.opacity(0.2))
@@ -46,6 +47,7 @@ struct ContentView: View {
                 UITabBar.appearance().standardAppearance = appearance
                 UITabBar.appearance().scrollEdgeAppearance = appearance
             }
+            // 上のタブバーの設定
             .navigationBarTitle("alive")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
@@ -119,8 +121,22 @@ struct DatePickerCalendar: View {
             .datePickerStyle(.graphical)
             Divider()
             //FormattedDate(selectedDate: selectedDate, omitTime: true)
-            Text("やること")
+            Text("今日の運勢は...")
             Spacer()
+            HStack {
+                Image(systemName: "party.popper.fill")
+                    .foregroundColor(.yellow)
+                    .rotation3DEffect(.degrees(180),
+                                      axis: (x: 0, y: 1, z: 0))
+                Text("大吉")
+                Image(systemName: "party.popper.fill")
+                    .foregroundColor(.yellow)
+            }
+            .font(.largeTitle)
+            
+            Spacer()
+            Text("今日も頑張ろう！")
+                .padding()
         }
     }
     class Coordinator: NSObject, FSCalendarDelegate, FSCalendarDataSource {

@@ -9,7 +9,9 @@ import SwiftUI
 
 struct pointView: View {
     var body: some View {
-        Text("pointView")
+        VStack {
+            Text("list")
+        }
     }
 }
 
