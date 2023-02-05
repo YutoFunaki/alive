@@ -112,6 +112,7 @@ struct ContentView_Previews: PreviewProvider {
 
 struct DatePickerCalendar: View {
     @State var selectedDate = Date()
+    @State var ruckyes = ["大吉":"今日こそ課題を終わらせよう！", "大大吉":"今日はなんでも上手くいく。", "超大吉":"マジすごい", "極大吉":"今日は神様と同じ存在だよ。", "超極大吉":"今日は生きているだけで崇められそう！"]
     var omitTime: Bool = false
     var body: some View {
         VStack {
@@ -121,7 +122,7 @@ struct DatePickerCalendar: View {
             .datePickerStyle(.graphical)
             Divider()
             //FormattedDate(selectedDate: selectedDate, omitTime: true)
-            Text("今日の運勢は...")
+            Text("今日の運勢は")
             Spacer()
             HStack {
                 Image(systemName: "party.popper.fill")
@@ -129,6 +130,7 @@ struct DatePickerCalendar: View {
                     .rotation3DEffect(.degrees(180),
                                       axis: (x: 0, y: 1, z: 0))
                 Text("大吉")
+                    .foregroundColor(.red)
                 Image(systemName: "party.popper.fill")
                     .foregroundColor(.yellow)
             }
